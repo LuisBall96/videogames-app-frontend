@@ -1,0 +1,41 @@
+
+.detalle {
+  display: flex;
+  height: 90%;
+  flex-direction: column;
+  background-color: rgb(52, 172, 116);
+  margin-left: 45%;
+  width: 50%;
+  padding-bottom: 50px;
+  margin-top: 40px;
+  border-radius: 15px;
+  line-height: 1.5;
+  border: 2px solid black;
+}
+
+.detalle img {
+  position: fixed;
+  margin-left: 70px;
+  margin-top: 4.5%;
+  object-fit: cover;
+  border: 2px solid black;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 80%;
+  width: 30%;
+  align-content: center;
+  border-radius: 10px;
+}
+
+.description {
+  line-height: 2;
+  padding-left: 2%;
+  padding-right: 2%;
+  text-align: justify;
+  padding-top: 10px;
+}
+
+.restantes {
+  padding-top: 20px;
+}

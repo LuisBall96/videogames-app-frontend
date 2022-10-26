@@ -1,0 +1,126 @@
+.home {
+  /* background: linear-gradient(to bottom, black, rgb(44, 95, 42)); */
+  background-image: url("../Images/73094.jpg");
+  color: rgb(230, 230, 18);
+  
+
+  display: block;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.home h1 {
+  text-shadow: 0 0 40px rgb(154, 190, 111);
+}
+
+.select a button select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.select button select::-ms-expand {
+  display: none;
+}
+
+.select {
+  max-width: 10px;
+  position: relative;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.select select {
+  display: inline-block;
+  width: 10%;
+  cursor: pointer;
+
+  height: 5vh;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background: #05530b;
+  color: #7b7b7b;
+  font-size: 1em;
+  color: #999;
+  font-family: Videogames;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.select button {
+  display: inline-block;
+  width: 10%;
+
+  height: 5vh;
+
+  border-radius: 0;
+  background: #c8f503;
+  color: #c06e6e;
+  font-size: 1em;
+  color: #999;
+  font-family: videogames;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+  text-shadow: 0 0 40px rgb(148, 199, 90);
+  color: black;
+  font-weight: bolder;
+}
+
+.select a {
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  height: 8vh;
+  border: 1px solid black;
+  background: #61e906;
+  color: #999;
+  font-family: videogames;
+  border: 2px solid rgba(165, 49, 49, 0.2);
+  border-radius: 12px;
+  text-shadow: 0 0 40px rgb(148, 199, 90);
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+.select select:hover {
+  background: #3ac05b;
+  transition: 2s;
+}
+
+.select button:hover {
+  background: #a5b368;
+  transition: 2s;
+}
+
+.select a:hover {
+  background: #699b48;
+  transition: 2s;
+}
+
+.select:hover i {
+  margin-top: 3px;
+}
+
+.current {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.current a {
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+}
+
+.current image {
+  border-radius: 10px;
+}

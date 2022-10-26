@@ -1,0 +1,17 @@
+.td input {
+  background-color: transparent;
+  width: 20%;
+  margin-top: 10px;
+  height: 4vh;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(209, 231, 128);
+  font-weight: bolder;
+}
+
+.button {
+  background-color: aquamarine;
+  width: 5%;
+  margin-top: 10px;
+  height: 4vh;
+  border-radius: 5px;
+}
