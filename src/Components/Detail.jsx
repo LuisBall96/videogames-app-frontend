@@ -38,7 +38,7 @@ export default function Detail(props) {
           <h5>
             {!videogame[0].createdInDB
               ? videogame[0].genres + "    "
-              : videogame[0].genres.map((ele) => ele + "  ")}
+              : videogame[0].genres.map((ele) => ele.name + "  ")}
           </h5>
           <h5 className={estilos.description}>
             {!videogame[0].createdInDB
