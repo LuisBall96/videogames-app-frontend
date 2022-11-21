@@ -11,7 +11,7 @@ export default function Formulario() {
   let estadoGeneros = useSelector((state) => state.generos);
 
   const [error, setError] = useState({
-    name: "El nombre es necesario",
+    name: "The name is required",
   });
   const [videogames, setVideogames] = useState({
     name: "",
@@ -108,35 +108,35 @@ export default function Formulario() {
       /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
 
     if (videogames.name.length === 0)
-      error.name = "Debes colocar un nombre a tu videojuego";
+      error.name = "You must put a name to your video game";
     if (videogames.name.length > 30)
-      error.name = "Tiene que tener un maximo de 30 caracteres";
+      error.name = "It has to have a maximum of 30 characters";
     if (verificarQueNoContNumero.test(videogames.name))
-      error.name = "Escribe solo texto";
+      error.name = "Just text, not numbers";
 
     if (videogames.description.length === 0)
-      error.description = "Debes colocar una descripción a tu videojuego";
+      error.description = "You must put a description to your video game";
     if (videogames.description.length > 100)
-      error.description = "Tiene que tener un maximo de 100 caracteres";
+      error.description = "It has to have a maximum of 100 characters";
 
     if (isAdate.test(videogames.released))
-      error.released = "Debes seguir el formato de fecha";
+      error.released = "You must follow the date format";
 
     if (!isURL.test(videogames.background_image))
       error.background_image =
-        "Debes ingresar una ruta correcta como http o htpps";
+        "You must enter a correct path like http or https";
     if (!isImage.test(videogames.background_image))
-      error.background_image = "Debes colocar un link formato jpg, png o gif";
+      error.background_image = "You must place a link in jpg, png or gif format";
 
     if (videogames.rating.length === 0)
-      error.rating = "Debes añadir un rating a tu videojuego ";
+      error.rating = "You must add a rating to your video game ";
 
     if (videogames.platform.length === 0)
       error.platform =
-        "Debes colocar por lo menos una plataforma en tu videojuego";
+        "You must place at least one platform in your game";
 
     if (videogames.genres.length === 0)
-      error.genres = "Debes colocar por lo menos un género a tu videojuego";
+      error.genres = "You must add at least one genre to your video game";
 
     return error;
   }
@@ -181,6 +181,96 @@ export default function Formulario() {
           </label>
         </div>
 
+        <br />
+
+        <span className={estilos.plataforma}>
+          <select onChange={(e) => handleElegirPlataforma(e)}>
+            <option value="default">Platform</option>
+            <option value="PC">PC</option>
+            <option value="PlayStation">PlayStation</option>
+            <option value="XBOX">XBOX</option>
+            <option value="iOS">iOS</option>
+            <option value="Apple Macintosh">Apple Macintosh</option>
+            <option value="Linux">Linux</option>
+            <option value="Nintendo">Nintendo</option>
+            <option value="Atari">Atari</option>
+            <option value="Commodore / Amiga">Commodore / Amiga</option>
+            <option value="Neo Geo">Neo Geo</option>
+            <option value="Web">Web</option>
+          </select>
+          <br />
+          {error.platform && (
+            <span style={{ color: "red" }}>{error.platform}</span>
+          )}
+
+          {
+            <ul>
+              {videogames.platform.map((ele) => {
+                return (
+                  <li key={ele} onClick={(e) => handleDeletePlataformas(e)}>
+                    {ele}
+                  </li>
+                );
+              })}
+            </ul>
+          }
+
+          <br />
+
+          <select
+            defaultValue={"default"}
+            onChange={(e) => handleElegirGenero(e)}
+          >
+            <option value="default">Genres</option>
+            {estadoGeneros &&
+              estadoGeneros.map((ele) => {
+                return (
+                  <option key={ele} value={ele.name}>
+                    {ele}
+                  </option>
+                );
+              })}
+          </select>
+          <br />
+
+          {error.genres && <span style={{ color: "red" }}>{error.genres}</span>}
+          {
+            <ul>
+              {videogames.genres.map((ele) => {
+                return (
+                  <li key={ele} onClick={(e) => handleDeleteGenero(e)}>
+                    {ele}
+                  </li>
+                );
+              })}
+            </ul>
+          }
+        </span>
+
+<br />
+
+<div>
+          <label>
+            Rating:
+            <br />
+            <input
+              type="number"
+              name="rating"
+              step="0.1"
+              min="1"
+              max="5"
+              value={videogames.rating}
+              onChange={(e) => handleChangeInput(e)}
+            />
+            <br />
+            {error.rating && (
+              <span style={{ color: "red" }}>{error.rating}</span>
+            )}
+          </label>
+        </div>
+
+        <br />
+
         <div>
           <label>
             Released:
@@ -218,95 +308,13 @@ export default function Formulario() {
           </label>
         </div>
 
-        <div>
-          <label>
-            Rating:
-            <br />
-            <input
-              type="number"
-              name="rating"
-              step="0.1"
-              min="1"
-              max="5"
-              value={videogames.rating}
-              onChange={(e) => handleChangeInput(e)}
-            />
-            <br />
-            {error.rating && (
-              <span style={{ color: "red" }}>{error.rating}</span>
-            )}
-          </label>
-        </div>
-
-        <span className={estilos.plataforma}>
-          <select onChange={(e) => handleElegirPlataforma(e)}>
-            <option value="default">Platform</option>
-            <option value="PC">PC</option>
-            <option value="PlayStation">PlayStation</option>
-            <option value="XBOX">XBOX</option>
-            <option value="iOS">iOS</option>
-            <option value="Apple Macintosh">Apple Macintosh</option>
-            <option value="Linux">Linux</option>
-            <option value="Nintendo">Nintendo</option>
-            <option value="Atari">Atari</option>
-            <option value="Commodore / Amiga">Commodore / Amiga</option>
-            <option value="Neo Geo">Neo Geo</option>
-            <option value="Web">Web</option>
-          </select>
-          <br />
-          {error.platform && (
-            <span style={{ color: "red" }}>{error.platform}</span>
-          )}
-
-          {
-            <ul>
-              {videogames.platform.map((ele) => {
-                return (
-                  <li key={ele} onClick={(e) => handleDeletePlataformas(e)}>
-                    {ele}
-                  </li>
-                );
-              })}
-            </ul>
-          }
-
-          <select
-            defaultValue={"default"}
-            onChange={(e) => handleElegirGenero(e)}
-          >
-            <option value="default">Genres</option>
-            {estadoGeneros &&
-              estadoGeneros.map((ele) => {
-                return (
-                  <option key={ele} value={ele.name}>
-                    {ele}
-                  </option>
-                );
-              })}
-          </select>
-          <br />
-
-          {error.genres && <span style={{ color: "red" }}>{error.genres}</span>}
-          {
-            <ul>
-              {videogames.genres.map((ele) => {
-                return (
-                  <li key={ele} onClick={(e) => handleDeleteGenero(e)}>
-                    {ele}
-                  </li>
-                );
-              })}
-            </ul>
-          }
-        </span>
-
         <br />
 
         <button
           onClick={(e) => handleCrearVideojuego(e)}
           disabled={Object.keys(error).length === 0 ? false : true}
         >
-          Enviar
+          Send
         </button>
       </form>
       <button>

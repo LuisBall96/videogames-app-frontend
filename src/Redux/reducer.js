@@ -22,7 +22,7 @@ function videogameReducer(state = initialState, action) {
         ...state,
         copiaVideogames:
           action.payload === "No existen videojuegos con ese nombre"
-            ? (alert("No existen videojuegos con ese nombre"),
+            ? (alert("There are no games with that name"),
               [...state.videogames])
             : action.payload,
       };
@@ -43,7 +43,7 @@ function videogameReducer(state = initialState, action) {
       const revisar =
         filtrarDB.length >= 1
           ? filtrarDB
-          : (alert("No existen videojuegos creados, ve hacia formulario"),
+          : (alert("There are no videogames created, go to the form"),
             [...state.videogames]);
       return {
         ...state,
@@ -69,7 +69,7 @@ function videogameReducer(state = initialState, action) {
         copiaVideogames:
           filtrar.length > 0
             ? filtrar
-            : (alert("No existen géneros en este elemento"),
+            : (alert("There are no genres in this item"),
               [...state.videogameDefault]),
       };
 
