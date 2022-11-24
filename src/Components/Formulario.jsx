@@ -93,7 +93,7 @@ export default function Formulario() {
       ...videogames,
     };
     dispatch(createVideogame(videojuegoFinal));
-    alert("Videojuego creado con exito!");
+    alert("Videogame created successfully!");
     setTimeout(() => {
       history.push("/home");
     }, 1000);
