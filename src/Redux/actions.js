@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function getVideogames() {
   return async function (dispatch) {
-    let url = await axios("https://videogames-app-backend-production.up.railway.app/videogames");
+    let url = await axios("https://videogames-backend-production-81d7.up.railway.app/videogames");
     return dispatch({
       type: "TRAER_VIDEOJUEGOS",
       payload: url.data,
@@ -11,7 +11,7 @@ export function getVideogames() {
 }
 export function getNames(name) {
   return async function (dispatch) {
-    let url = await axios("https://videogames-app-backend-production.up.railway.app/videogames?name=" + name);
+    let url = await axios("https://videogames-backend-production-81d7.up.railway.app/videogames?name=" + name);
     return dispatch({
       type: "BUSCAR_POR_NOMBRE",
       payload: url.data,
@@ -22,7 +22,7 @@ export function getNames(name) {
 export function getGenres() {
   return async function (dispatch) {
     try {
-      let url = await axios("https://videogames-app-backend-production.up.railway.app/genres");
+      let url = await axios("https://videogames-backend-production-81d7.up.railway.app/genres");
       return dispatch({
         type: "TRAER_GENEROS",
         payload: url.data,
@@ -68,7 +68,7 @@ export function orderRating(payload) {
 
 export function createVideogame(payload) {
   return async function () {
-    let url = await axios.post("https://videogames-app-backend-production.up.railway.app/crearJuego", payload);
+    let url = await axios.post("https://videogames-backend-production-81d7.up.railway.app/crearJuego", payload);
     return url;
   };
 }
@@ -76,7 +76,7 @@ export function createVideogame(payload) {
 export function videogameDetail(id) {
   return async function (dispatch) {
     try {
-      let url = await axios(`https://videogames-app-backend-production.up.railway.app/videogames/${id}`);
+      let url = await axios(`https://videogames-backend-production-81d7.up.railway.app/videogames/${id}`);
 
       return dispatch({
         type: "TRAER_DETALLE",
